@@ -12,6 +12,7 @@ public:
         for (int i = 0; i < s.length(); ++i) {
             count[s[i] - 'a']++;
             count[t[i] - 'a']--;
+            
         }
 
         // Check if all counts are zero
