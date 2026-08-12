@@ -1,18 +1,20 @@
 class Solution {
 public:
     ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
-        if(headA==NULL || headB==NULL) return NULL;
-        unordered_map<ListNode*,int> mpp;
-        ListNode* temp1=headA;
-        while(temp1!=NULL){
-            mpp[temp1]++;
-            temp1=temp1->next;
+        if (headA == nullptr || headB == nullptr) return nullptr;
+
+        ListNode* currenta = headA;
+        ListNode* currentb = headB;
+
+        while (currenta != currentb) {
+            // If currenta reaches the end of List A, switch to headB
+            currenta = (currenta == nullptr) ? headB : currenta->next;
+            
+            // If currentb reaches the end of List B, switch to headA
+            currentb = (currentb == nullptr) ? headA : currentb->next;
         }
-        ListNode* temp2=headB;
-        while(temp2!=NULL){
-            if(mpp.find(temp2)!=mpp.end()) return temp2;
-            temp2=temp2->next;
-        }
-        return NULL;
+
+        // Returns either the intersection node or nullptr
+        return currenta; 
     }
 };
