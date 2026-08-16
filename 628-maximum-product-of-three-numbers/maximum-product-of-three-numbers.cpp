@@ -1,7 +1,7 @@
 class Solution {
 public:
     int maximumProduct(vector<int>& nums) {
-        sort(nums.rbegin(),nums.rend());
+        sort(nums.rbegin(),nums.rend());// if no sort O(n)
         int n = nums.size();
         long long maxpro = 0;
         if(nums[n-1] < 0 && nums[n-2] < 0 )
