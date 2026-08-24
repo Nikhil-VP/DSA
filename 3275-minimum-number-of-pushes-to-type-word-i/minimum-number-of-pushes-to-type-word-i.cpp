@@ -2,21 +2,23 @@ class Solution {
 public:
     int minimumPushes(string word) {
         int n=word.size();
-        if(n<=8){
-            return n;
-        }
-        else if(n<16){
-            return 8+(n%8)*2;
-        }else if(n==16){
-            return 24;
-        }else if(n<24){
-            return 24+(n%8)*3;
-        }
-        else if(n==24){
-            return 48;
-        }
-        else{
-            return 48+(n%8)*4;
-        }
+        // if(n<=8){
+        //     return n;
+        // }
+        // else if(n<16){
+        //     return 8+(n%8)*2;
+        // }else if(n==16){
+        //     return 24;
+        // }else if(n<24){
+        //     return 24+(n%8)*3;
+        // }
+        // else if(n==24){
+        //     return 48;
+        // }
+        // else{
+        //     return 48+(n%8)*4;
+        // }
+        int blocks = n/8;
+        return (blocks*(blocks+1)*4+(n%8)*(blocks+1));
     }
 };
